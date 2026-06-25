@@ -120,7 +120,7 @@ function Hero() {
           <FaGithub className="text-xl" />
         </a>
         <a
-          href="www.linkedin.com/in/jagadish-r-b4822b216"
+          href="https://www.linkedin.com/in/jagadish-r-b4822b216"
           target="_blank"
           rel="noreferrer"
           className="text-stone-400 hover:text-stone-900 transition-colors"
@@ -186,7 +186,7 @@ function Experience() {
       className="py-24 px-6 border-t border-stone-200/60"
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-12">
           Experience
         </h2>
         <div className="relative pl-8 sm:pl-10">
@@ -272,7 +272,7 @@ function Projects() {
       className="py-24 px-6 border-t border-stone-200/60"
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-12">
           Projects
         </h2>
         <div className="space-y-8">
@@ -385,7 +385,7 @@ function Skills() {
       className="py-24 px-6 border-t border-stone-200/60"
     >
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-12">
           Skills
         </h2>
         <div className="space-y-12">
@@ -414,7 +414,7 @@ function Contact() {
       className="py-24 px-6 border-t border-stone-200/60"
     >
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-6">
+        <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-6">
           Contact
         </h2>
         <p className="text-stone-600 leading-relaxed text-balance mb-10">
@@ -437,7 +437,7 @@ function Contact() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/jagadish-r"
+            href="https://www.linkedin.com/in/jagadish-r-b4822b216"
             target="_blank"
             rel="noreferrer"
             className="text-accent hover:text-stone-900 transition-colors"
