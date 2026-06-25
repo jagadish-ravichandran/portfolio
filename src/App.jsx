@@ -23,6 +23,7 @@ import {
   SiSonarqubecloud,
   SiTelegram,
 } from 'react-icons/si'
+import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { VscDebug, VscServerProcess } from 'react-icons/vsc'
 import { GoGitBranch, GoWorkflow, GoFile } from 'react-icons/go'
 
@@ -54,7 +55,7 @@ function Nav() {
             ))}
           </ul>
           <a
-            href="https://github.com/jagadish-ravichandran/resume"
+            href="https://github.com/jagadish-ravichandran/resume/blob/main/Jagadish_Ravichandran_Resume.pdf"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 text-sm font-medium text-accent border border-accent/30 rounded-lg px-3 py-1.5 hover:bg-accent hover:text-white transition-colors"
@@ -89,12 +90,55 @@ function Hero() {
         about software quality, developer experience, and turning complexity
         into clarity.
       </p>
-      <a
-        href="#experience"
-        className="mt-10 text-sm text-accent hover:text-stone-900 transition-colors"
-      >
-        Explore my work &darr;
-      </a>
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="#projects"
+          className="text-sm font-medium text-white bg-accent rounded-lg px-5 py-2.5 hover:brightness-110 transition-all"
+        >
+          View Projects
+        </a>
+        <a
+          href="#experience"
+          className="text-sm font-medium text-accent border border-accent/30 rounded-lg px-5 py-2.5 hover:bg-accent hover:text-white transition-all"
+        >
+          Experience
+        </a>
+        <a
+          href="#contact"
+          className="text-sm font-medium text-accent border border-accent/30 rounded-lg px-5 py-2.5 hover:bg-accent hover:text-white transition-all"
+        >
+          Get in Touch
+        </a>
+      </div>
+      <div className="mt-4 flex items-center justify-center gap-4">
+        <a
+          href="https://github.com/jagadish-ravichandran"
+          target="_blank"
+          rel="noreferrer"
+          className="text-stone-400 hover:text-stone-900 transition-colors"
+          aria-label="GitHub"
+        >
+          <FaGithub className="text-xl" />
+        </a>
+        <a
+          href="https://linkedin.com/in/jagadish-r"
+          target="_blank"
+          rel="noreferrer"
+          className="text-stone-400 hover:text-stone-900 transition-colors"
+          aria-label="LinkedIn"
+        >
+          <FaLinkedin className="text-xl" />
+        </a>
+        <a
+          href="https://github.com/jagadish-ravichandran/resume/blob/main/Jagadish_Ravichandran_Resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="text-stone-400 hover:text-stone-900 transition-colors"
+          aria-label="Resume"
+        >
+          <GoFile className="text-xl" />
+        </a>
+      </div>
     </section>
   )
 }
@@ -105,6 +149,7 @@ function Experience() {
       company: "Axelate Solutions",
       title: "Software Engineer",
       period: "Jun 2025 – Jun 2026",
+      color: "#2563eb",
       highlights: [
         "Designed domain-driven backend services for a multi-tenant B2B SaaS platform, keeping business logic cleanly separated from application and infrastructure concerns.",
         "Owned database schema evolution end-to-end using PostgreSQL and Liquibase, ensuring data integrity and backward compatibility through every production deployment.",
@@ -118,6 +163,7 @@ function Experience() {
       company: "Crayon Data",
       title: "Associate Software Engineer",
       period: "Aug 2023 – Jun 2025",
+      color: "#059669",
       highlights: [
         "Developed GraphQL APIs using Hasura that enabled flexible, efficient data retrieval for a configuration-driven mobile application.",
         "Built a resilient email notification service in Spring Boot with automatic retry mechanisms for fault-tolerant message delivery.",
@@ -128,6 +174,7 @@ function Experience() {
       company: "Inoesis Technologies",
       title: "Software Developer Intern",
       period: "Aug 2021 – Feb 2022",
+      color: "#d97706",
       highlights: [
         "Delivered REST APIs and integrated Twilio Video APIs for teleconsultation and appointment management features in healthcare applications.",
       ],
@@ -144,34 +191,50 @@ function Experience() {
           Experience
         </h2>
         <div className="relative pl-8 sm:pl-10">
-          <div className="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-px bg-stone-200" />
+          <div className="absolute left-[11px] sm:left-[15px] top-0 bottom-0 w-px bg-stone-200" />
           {roles.map((role, idx) => (
-            <div key={role.company} className="relative pb-16 last:pb-0">
-              <div className="absolute left-[-26px] sm:left-[-34px] top-1 w-[15px] h-[15px] sm:w-[19px] sm:h-[19px] rounded-full border-2 border-stone-300 bg-white flex items-center justify-center">
-                <div className="w-[7px] h-[7px] sm:w-[9px] sm:h-[9px] rounded-full bg-accent" />
+            <div key={role.company} className="relative pb-16 last:pb-0 group">
+              <div
+                className="absolute left-[-28px] sm:left-[-34px] top-[3px] w-[15px] h-[15px] sm:w-[19px] sm:h-[19px] rounded-full border-2 bg-white flex items-center justify-center"
+                style={{ borderColor: role.color }}
+              >
+                <div
+                  className="w-[7px] h-[7px] sm:w-[9px] sm:h-[9px] rounded-full"
+                  style={{ backgroundColor: role.color }}
+                />
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
-                <div>
-                  <h3 className="text-base font-medium text-stone-900">
-                    {role.title}
-                  </h3>
-                  <p className="text-sm text-stone-500">{role.company}</p>
+              <div
+                className="rounded-lg border border-transparent transition-all duration-200 -m-3 p-3"
+                style={{ '--c': role.color }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = role.color + '66'}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = 'transparent'}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
+                  <div>
+                    <h3 className="text-base font-medium text-stone-900">
+                      {role.title}
+                    </h3>
+                    <p className="text-sm text-stone-500">{role.company}</p>
+                  </div>
+                  <p className="text-sm text-stone-400 mt-1 sm:mt-0">
+                    {role.period}
+                  </p>
                 </div>
-                <p className="text-sm text-stone-400 mt-1 sm:mt-0">
-                  {role.period}
-                </p>
+                <ul className="space-y-3">
+                  {role.highlights.map((h, i) => (
+                    <li
+                      key={i}
+                      className="text-sm text-stone-600 leading-relaxed pl-5 relative"
+                    >
+                      <span
+                        className="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full"
+                        style={{ backgroundColor: role.color }}
+                      />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {role.highlights.map((h, i) => (
-                  <li
-                    key={i}
-                    className="text-sm text-stone-600 leading-relaxed pl-5 relative"
-                  >
-                    <span className="absolute left-0 top-[0.6em] w-1.5 h-px bg-stone-300" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
