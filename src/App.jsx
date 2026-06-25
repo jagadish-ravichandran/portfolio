@@ -1,6 +1,79 @@
-function App() {
+import {
+  SiOpenjdk,
+  SiPython,
+  SiJavascript,
+  SiC,
+  SiGnubash,
+  SiSpringboot,
+  SiSpringsecurity,
+  SiReact,
+  SiNodedotjs,
+  SiDjango,
+  SiFlask,
+  SiGraphql,
+  SiPostgresql,
+  SiMongodb,
+  SiMinio,
+  SiDocker,
+  SiGithubactions,
+  SiJenkins,
+  SiDigitalocean,
+  SiJunit5,
+  SiCucumber,
+  SiSonarqubecloud,
+  SiTelegram,
+} from 'react-icons/si'
+import { VscDebug, VscServerProcess } from 'react-icons/vsc'
+import { GoGitBranch, GoWorkflow, GoFile } from 'react-icons/go'
+
+function Nav() {
+  const links = [
+    { href: "#experience", label: "Experience" },
+    { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Skills" },
+    { href: "#contact", label: "Contact" },
+  ]
+
   return (
-    <main className="min-h-svh flex flex-col items-center justify-center px-6">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-md border-b border-stone-200/60">
+      <div className="max-w-5xl mx-auto flex items-center justify-between px-6 h-14">
+        <a href="#" className="text-sm font-medium text-stone-900">
+          JR
+        </a>
+        <div className="flex items-center gap-6">
+          <ul className="flex gap-6">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="https://github.com/jagadish-ravichandran/resume"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 text-sm font-medium text-accent border border-accent/30 rounded-lg px-3 py-1.5 hover:bg-accent hover:text-white transition-colors"
+          >
+            <GoFile className="text-base" />
+            Resume
+          </a>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+function Hero() {
+  return (
+    <section
+      id="hero"
+      className="min-h-svh flex flex-col items-center justify-center px-6"
+    >
       <p className="text-xs uppercase tracking-[0.2em] text-stone-500 mb-5">
         Software Engineer
       </p>
@@ -12,17 +85,337 @@ function App() {
       </p>
       <p className="mt-6 text-stone-500 text-center max-w-lg text-balance leading-relaxed">
         I build systems that are designed to last — with clean architecture,
-        well-considered tradeoffs, and a focus on delivering real value.
-        I care about software quality, developer experience, and turning
-        complexity into clarity.
+        well-considered tradeoffs, and a focus on delivering real value. I care
+        about software quality, developer experience, and turning complexity
+        into clarity.
       </p>
       <a
-        href="mailto:hello@jagadish.dev"
+        href="#experience"
         className="mt-10 text-sm text-accent hover:text-stone-900 transition-colors"
       >
-        Get in touch &rarr;
+        Explore my work &darr;
       </a>
-    </main>
+    </section>
+  )
+}
+
+function Experience() {
+  const roles = [
+    {
+      company: "Axelate Solutions",
+      title: "Software Engineer",
+      period: "Jun 2025 – Jun 2026",
+      highlights: [
+        "Designed domain-driven backend services for a multi-tenant B2B SaaS platform, keeping business logic cleanly separated from application and infrastructure concerns.",
+        "Owned database schema evolution end-to-end using PostgreSQL and Liquibase, ensuring data integrity and backward compatibility through every production deployment.",
+        "Built tenant-aware authentication and authorization systems with JWT, OTP, and DPoP, enforcing domain-level isolation across the stack.",
+        "Led integrations with external business platforms — navigating ambiguous documentation, resolving production issues, and delivering solutions that supported critical business operations.",
+        "Raised engineering quality standards through behavior-driven testing, containerized integration tests, and automated quality gates.",
+        "Established CI/CD pipelines and cloud infrastructure on DigitalOcean for reliable, scalable application delivery.",
+      ],
+    },
+    {
+      company: "Crayon Data",
+      title: "Associate Software Engineer",
+      period: "Aug 2023 – Jun 2025",
+      highlights: [
+        "Developed GraphQL APIs using Hasura that enabled flexible, efficient data retrieval for a configuration-driven mobile application.",
+        "Built a resilient email notification service in Spring Boot with automatic retry mechanisms for fault-tolerant message delivery.",
+        "Improved backend performance and security for a digital banking platform through targeted database optimization and code obfuscation.",
+      ],
+    },
+    {
+      company: "Inoesis Technologies",
+      title: "Software Developer Intern",
+      period: "Aug 2021 – Feb 2022",
+      highlights: [
+        "Delivered REST APIs and integrated Twilio Video APIs for teleconsultation and appointment management features in healthcare applications.",
+      ],
+    },
+  ]
+
+  return (
+    <section
+      id="experience"
+      className="py-24 px-6 border-t border-stone-200/60"
+    >
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+          Experience
+        </h2>
+        <div className="relative pl-8 sm:pl-10">
+          <div className="absolute left-[11px] sm:left-[15px] top-2 bottom-2 w-px bg-stone-200" />
+          {roles.map((role, idx) => (
+            <div key={role.company} className="relative pb-16 last:pb-0">
+              <div className="absolute left-[-26px] sm:left-[-34px] top-1 w-[15px] h-[15px] sm:w-[19px] sm:h-[19px] rounded-full border-2 border-stone-300 bg-white flex items-center justify-center">
+                <div className="w-[7px] h-[7px] sm:w-[9px] sm:h-[9px] rounded-full bg-accent" />
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
+                <div>
+                  <h3 className="text-base font-medium text-stone-900">
+                    {role.title}
+                  </h3>
+                  <p className="text-sm text-stone-500">{role.company}</p>
+                </div>
+                <p className="text-sm text-stone-400 mt-1 sm:mt-0">
+                  {role.period}
+                </p>
+              </div>
+              <ul className="space-y-3">
+                {role.highlights.map((h, i) => (
+                  <li
+                    key={i}
+                    className="text-sm text-stone-600 leading-relaxed pl-5 relative"
+                  >
+                    <span className="absolute left-0 top-[0.6em] w-1.5 h-px bg-stone-300" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const projects = [
+  {
+    name: "Personal Expense Tracker",
+    description: "Track and visualize personal spending with a category-based dashboard and monthly breakdowns.",
+    link: "https://personal-expense-management-app.onrender.com",
+    tech: [
+      { name: "Flask", icon: SiFlask },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "JavaScript", icon: SiJavascript },
+    ],
+  },
+  {
+    name: "Form Bot",
+    description: "Create and manage forms entirely through Telegram with automated response collection.",
+    link: "https://telegram.me/formspot_bot",
+    tech: [
+      { name: "Python", icon: SiPython },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Telegram", icon: SiTelegram },
+    ],
+  },
+]
+
+function Projects() {
+  return (
+    <section
+      id="projects"
+      className="py-24 px-6 border-t border-stone-200/60"
+    >
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+          Projects
+        </h2>
+        <div className="space-y-8">
+          {projects.map((p) => (
+            <div key={p.name} className="border border-stone-200 rounded-lg p-6">
+              <div className="flex items-start justify-between gap-4">
+                <div className="min-w-0">
+                  <h3 className="text-base font-medium text-stone-900 mb-2">
+                    {p.name}
+                  </h3>
+                  <p className="text-sm text-stone-600 leading-relaxed">
+                    {p.description}
+                  </p>
+                  <div className="flex items-center gap-3 mt-4">
+                    {p.tech.map((t) => (
+                      <span
+                        key={t.name}
+                        className="flex items-center gap-1.5 text-xs text-stone-500"
+                      >
+                        <t.icon className="text-base" />
+                        {t.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="shrink-0 text-sm text-accent hover:text-stone-900 transition-colors mt-1"
+                >
+                  Live &rarr;
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function SkillCard({ icon: Icon, name }) {
+  return (
+    <div className="flex items-center gap-2.5 p-3 rounded-lg border border-stone-200 bg-white hover:scale-105 hover:shadow-md transition-all duration-200 cursor-default">
+      <Icon className="text-lg text-stone-600 shrink-0" />
+      <span className="text-sm text-stone-600 leading-tight">
+        {name}
+      </span>
+    </div>
+  )
+}
+
+function Skills() {
+  const categories = [
+    {
+      name: "Languages",
+      items: [
+        { name: "Java", icon: SiOpenjdk },
+        { name: "Python", icon: SiPython },
+        { name: "SQL", icon: SiPostgresql },
+        { name: "JavaScript", icon: SiJavascript },
+        { name: "Bash", icon: SiGnubash },
+        { name: "C", icon: SiC },
+      ],
+    },
+    {
+      name: "Frameworks & Technologies",
+      items: [
+        { name: "Spring Boot", icon: SiSpringboot },
+        { name: "Spring Security", icon: SiSpringsecurity },
+        { name: "Spring Data JPA", icon: SiSpringboot },
+        { name: "React", icon: SiReact },
+        { name: "Node.js", icon: SiNodedotjs },
+        { name: "Django", icon: SiDjango },
+        { name: "Flask", icon: SiFlask },
+        { name: "GraphQL", icon: SiGraphql },
+      ],
+    },
+    {
+      name: "Databases & Storage",
+      items: [
+        { name: "PostgreSQL", icon: SiPostgresql },
+        { name: "MongoDB", icon: SiMongodb },
+        { name: "MinIO", icon: SiMinio },
+      ],
+    },
+    {
+      name: "Cloud & DevOps",
+      items: [
+        { name: "Docker", icon: SiDocker },
+        { name: "GitHub Actions", icon: SiGithubactions },
+        { name: "Jenkins", icon: SiJenkins },
+        { name: "DigitalOcean", icon: SiDigitalocean },
+        { name: "CI/CD", icon: GoWorkflow },
+        { name: "GitFlow", icon: GoGitBranch },
+      ],
+    },
+    {
+      name: "Testing & Quality",
+      items: [
+        { name: "JUnit", icon: SiJunit5 },
+        { name: "Cucumber", icon: SiCucumber },
+        { name: "Testcontainers", icon: VscServerProcess },
+        { name: "WireMock", icon: VscDebug },
+        { name: "SonarCloud", icon: SiSonarqubecloud },
+      ],
+    },
+  ]
+
+  return (
+    <section
+      id="skills"
+      className="py-24 px-6 border-t border-stone-200/60"
+    >
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-12">
+          Skills
+        </h2>
+        <div className="space-y-12">
+          {categories.map((cat) => (
+            <div key={cat.name}>
+              <h3 className="text-sm font-medium text-stone-900 mb-4">
+                {cat.name}
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3">
+                {cat.items.map((item) => (
+                  <SkillCard key={item.name} icon={item.icon} name={item.name} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Contact() {
+  return (
+    <section
+      id="contact"
+      className="py-24 px-6 border-t border-stone-200/60"
+    >
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-xs uppercase tracking-[0.2em] text-stone-400 mb-6">
+          Contact
+        </h2>
+        <p className="text-stone-600 leading-relaxed text-balance mb-10">
+          Looking for an engineer who cares about architecture, quality, and
+          delivery? Let's talk.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm">
+          <a
+            href="mailto:jagadishr6300@gmail.com"
+            className="text-accent hover:text-stone-900 transition-colors"
+          >
+            jagadishr6300@gmail.com
+          </a>
+          <a
+            href="https://github.com/jagadish-ravichandran"
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent hover:text-stone-900 transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://linkedin.com/in/jagadish-r"
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent hover:text-stone-900 transition-colors"
+          >
+            LinkedIn
+          </a>
+        </div>
+        <p className="mt-6 text-xs text-stone-400">
+          +91 9597867439
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="py-8 px-6 border-t border-stone-200/60">
+      <div className="max-w-5xl mx-auto flex items-center justify-center text-xs text-stone-400">
+        <p>&copy; {new Date().getFullYear()} Jagadish Ravichandran</p>
+      </div>
+    </footer>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <Nav />
+      <Hero />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Contact />
+      <Footer />
+    </>
   )
 }
 

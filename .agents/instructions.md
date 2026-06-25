@@ -113,14 +113,6 @@ A first-time visitor should be able to understand within approximately one minut
 * My approach to software engineering
 * How to contact me
 
-A hiring manager or recruiter should leave with a clear understanding of:
-
-* Professional experience
-* Technical depth
-* Engineering mindset
-* Project ownership
-* Communication quality
-
 Every page, component, and content decision should contribute toward these outcomes.
 
 # Styling Guidelines
