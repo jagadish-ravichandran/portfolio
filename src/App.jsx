@@ -121,7 +121,7 @@ function Hero() {
           <FaGithub className="text-xl" />
         </a>
         <a
-          href="https://linkedin.com/in/jagadish-r"
+          href="www.linkedin.com/in/jagadish-r-b4822b216"
           target="_blank"
           rel="noreferrer"
           className="text-stone-400 hover:text-stone-900 transition-colors"
