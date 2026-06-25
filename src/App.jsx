@@ -2,7 +2,6 @@ import {
   SiOpenjdk,
   SiPython,
   SiJavascript,
-  SiC,
   SiGnubash,
   SiSpringboot,
   SiSpringsecurity,
@@ -16,16 +15,16 @@ import {
   SiMinio,
   SiDocker,
   SiGithubactions,
-  SiJenkins,
-  SiDigitalocean,
   SiJunit5,
   SiCucumber,
   SiSonarqubecloud,
   SiTelegram,
+  SiClaude,
+  SiAnthropic,
 } from 'react-icons/si'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
-import { VscDebug, VscServerProcess } from 'react-icons/vsc'
-import { GoGitBranch, GoWorkflow, GoFile } from 'react-icons/go'
+import { VscDebug, VscServerProcess, VscSymbolMethod } from 'react-icons/vsc'
+import { GoGitBranch, GoWorkflow, GoFile, GoPlug, GoPerson } from 'react-icons/go'
 
 function Nav() {
   const links = [
@@ -330,56 +329,52 @@ function SkillCard({ icon: Icon, name }) {
 function Skills() {
   const categories = [
     {
-      name: "Languages",
+      name: "Core Technologies",
       items: [
         { name: "Java", icon: SiOpenjdk },
         { name: "Python", icon: SiPython },
         { name: "SQL", icon: SiPostgresql },
         { name: "JavaScript", icon: SiJavascript },
+        { name: "PostgreSQL", icon: SiPostgresql },
+        { name: "MongoDB", icon: SiMongodb },
+        { name: "MinIO", icon: SiMinio },
         { name: "Bash", icon: SiGnubash },
-        { name: "C", icon: SiC },
       ],
     },
     {
-      name: "Frameworks & Technologies",
+      name: "Frameworks",
       items: [
         { name: "Spring Boot", icon: SiSpringboot },
         { name: "Spring Security", icon: SiSpringsecurity },
         { name: "Spring Data JPA", icon: SiSpringboot },
-        { name: "React", icon: SiReact },
+        { name: "GraphQL", icon: SiGraphql },
+        { name: "React.js", icon: SiReact },
         { name: "Node.js", icon: SiNodedotjs },
         { name: "Django", icon: SiDjango },
         { name: "Flask", icon: SiFlask },
-        { name: "GraphQL", icon: SiGraphql },
       ],
     },
     {
-      name: "Databases & Storage",
+      name: "Engineering Practices",
       items: [
-        { name: "PostgreSQL", icon: SiPostgresql },
-        { name: "MongoDB", icon: SiMongodb },
-        { name: "MinIO", icon: SiMinio },
-      ],
-    },
-    {
-      name: "Cloud & DevOps",
-      items: [
+        { name: "SonarCloud", icon: SiSonarqubecloud },
+        { name: "CI/CD", icon: GoWorkflow },
         { name: "Docker", icon: SiDocker },
         { name: "GitHub Actions", icon: SiGithubactions },
-        { name: "Jenkins", icon: SiJenkins },
-        { name: "DigitalOcean", icon: SiDigitalocean },
-        { name: "CI/CD", icon: GoWorkflow },
-        { name: "GitFlow", icon: GoGitBranch },
-      ],
-    },
-    {
-      name: "Testing & Quality",
-      items: [
         { name: "JUnit", icon: SiJunit5 },
         { name: "Cucumber", icon: SiCucumber },
         { name: "Testcontainers", icon: VscServerProcess },
         { name: "WireMock", icon: VscDebug },
-        { name: "SonarCloud", icon: SiSonarqubecloud },
+      ],
+    },
+    {
+      name: "AI-Assisted Development",
+      items: [
+        { name: "Spec-Driven Development", icon: GoFile },
+        { name: "Claude Code", icon: SiClaude },
+        { name: "AI-Assisted Engineering", icon: SiAnthropic },
+        { name: "MCP (GitHub & Jira)", icon: GoPlug },
+        { name: "Human-in-the-Loop Review", icon: GoPerson },
       ],
     },
   ]
