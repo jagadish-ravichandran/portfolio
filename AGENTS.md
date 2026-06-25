@@ -304,3 +304,75 @@ Maintain consistency across:
 New sections and components should feel like natural extensions of the existing design system.
 
 When introducing new UI patterns, align them with the established visual language of the portfolio.
+
+# Site Architecture
+
+## Single-Page Experience
+
+The portfolio should be implemented as a single-page experience.
+
+All primary content should be accessible from one page through clearly structured sections and in-page navigation.
+
+Recommended sections:
+
+1. Hero
+2. About
+3. Experience
+4. Projects
+5. Engineering
+6. Skills
+7. Resume
+8. Contact
+
+Navigation should use smooth in-page scrolling and section anchors rather than separate pages for primary content.
+
+## Content Organization
+
+Each section should be:
+
+* Self-contained
+* Easy to scan
+* Clearly separated
+* Consistent in structure
+
+Visitors should be able to navigate directly to any section from the main navigation without leaving the page.
+
+## Navigation
+
+Prefer:
+
+* Sticky navigation
+* Section anchors
+* Active section highlighting
+* Mobile-friendly navigation
+
+Navigation labels should remain concise and descriptive.
+
+Example:
+
+* Home
+* Experience
+* Projects
+* Engineering
+* Resume
+* Contact
+
+## Information Density
+
+The single-page layout should provide sufficient detail while maintaining readability.
+
+Prioritize:
+
+* Concise summaries
+* Expandable details where appropriate
+* Clear section hierarchy
+* Logical content flow
+
+Avoid overwhelming visitors with excessive text in any single section.
+
+## Future Expansion
+
+Additional content such as articles, case studies, or technical writing may be added in the future.
+
+However, the primary portfolio experience should remain consolidated into a single-page layout that allows visitors to quickly understand professional experience, technical expertise, and project work without navigating across multiple pages.
+
