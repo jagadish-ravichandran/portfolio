@@ -257,9 +257,29 @@ const projects = [
     name: "Form Bot",
     description: "Create and manage forms entirely through Telegram with automated response collection.",
     link: "https://telegram.me/formspot_bot",
+    github: "https://github.com/jagadish-ravichandran/Form_Telegram_Bot",
     tech: [
       { name: "Python", icon: SiPython },
       { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Telegram", icon: SiTelegram },
+    ],
+  },
+  {
+    name: "TOTP Spring Boot App",
+    description: "Production-ready two-factor authentication (2FA) with TOTP — AES-256-GCM encrypted secrets, QR code setup, and Spring Security integration.",
+    github: "https://github.com/jagadish-ravichandran/totp-spring-boot-app",
+    tech: [
+      { name: "Java", icon: SiOpenjdk },
+      { name: "Spring Boot", icon: SiSpringboot },
+      { name: "Docker", icon: SiDocker },
+    ],
+  },
+  {
+    name: "Put.io Telegram Bot",
+    description: "Telegram bot to download torrents and generate direct download links using put.io integration.",
+    github: "https://github.com/jagadish-ravichandran/Putio-Telegram-Bot",
+    tech: [
+      { name: "Python", icon: SiPython },
       { name: "Telegram", icon: SiTelegram },
     ],
   },
@@ -298,14 +318,29 @@ function Projects() {
                     ))}
                   </div>
                 </div>
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="shrink-0 text-sm text-accent hover:text-stone-900 transition-colors mt-1"
-                >
-                  Live &rarr;
-                </a>
+                <div className="shrink-0 flex items-center gap-3 mt-1">
+                  {p.github && (
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-stone-400 hover:text-stone-900 transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <FaGithub className="text-lg" />
+                    </a>
+                  )}
+                  {p.link && (
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-accent hover:text-stone-900 transition-colors"
+                    >
+                      Live &rarr;
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
