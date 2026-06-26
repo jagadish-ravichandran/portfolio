@@ -334,9 +334,9 @@ function Projects() {
         <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-12">
           Projects
         </h2>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-8">
           {projects.map((p) => (
-            <div key={p.name} className="border border-stone-200 rounded-lg overflow-hidden flex flex-col justify-between">
+            <div key={p.name} className="border border-stone-200 rounded-lg overflow-hidden flex flex-col justify-between transition-transform duration-300 hover:scale-105">
               {p.image && (
                 <img
                   src={p.image}
