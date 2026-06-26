@@ -211,10 +211,10 @@ function Experience() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4">
                   <div>
-                    <h3 className="text-base font-medium text-stone-900">
-                      {role.title}
+                    <h3 className="text-base font-semibold text-stone-900">
+                      {role.company}
                     </h3>
-                    <p className="text-sm text-stone-500">{role.company}</p>
+                    <p className="text-sm text-stone-500">{role.title}</p>
                   </div>
                   <p className="text-sm text-stone-400 mt-1 sm:mt-0">
                     {role.period}
@@ -246,6 +246,7 @@ function Experience() {
 const projects = [
   {
     name: "Personal Expense Tracker",
+    image: "/projects/personal-expense-tracker.png",
     description: "Track and visualize personal spending with a category-based dashboard and monthly breakdowns.",
     link: "https://personal-expense-management-app.onrender.com",
     github: "https://github.com/SSN-MiniProjects/personal-expense-tracker",
@@ -258,6 +259,7 @@ const projects = [
   },
   {
     name: "Form Bot",
+    image: "/projects/formbot.jpg",
     description: "Create and manage forms entirely through Telegram with automated response collection.",
     link: "https://telegram.me/formspot_bot",
     github: "https://github.com/jagadish-ravichandran/Form_Telegram_Bot",
@@ -270,6 +272,7 @@ const projects = [
   },
   {
     name: "TOTP Spring Boot App",
+    image: "/projects/totp.jpg",
     description: "Production-ready two-factor authentication (2FA) with TOTP — AES-256-GCM encrypted secrets, QR code setup, and Spring Security integration.",
     github: "https://github.com/jagadish-ravichandran/totp-spring-boot-app",
     repo: "jagadish-ravichandran/totp-spring-boot-app",
@@ -281,6 +284,7 @@ const projects = [
   },
   {
     name: "Put.io Telegram Bot",
+    image: "/projects/putiobot.jpg",
     description: "Telegram bot to download torrents and generate direct download links using put.io integration.",
     github: "https://github.com/jagadish-ravichandran/Putio-Telegram-Bot",
     repo: "jagadish-ravichandran/Putio-Telegram-Bot",
@@ -330,55 +334,62 @@ function Projects() {
         <h2 className="text-sm uppercase tracking-[0.2em] text-stone-500 mb-12">
           Projects
         </h2>
-        <div className="space-y-8">
+        <div className="grid sm:grid-cols-2 gap-5">
           {projects.map((p) => (
-            <div key={p.name} className="border border-stone-200 rounded-lg p-6">
-              <div className="flex items-start justify-between gap-4">
-                <div className="min-w-0">
+            <div key={p.name} className="border border-stone-200 rounded-lg overflow-hidden flex flex-col justify-between">
+              {p.image && (
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="w-full h-40 object-cover"
+                />
+              )}
+              <div className="p-5">
+                <div className="flex items-start justify-between gap-3">
                   <h3 className="text-base font-medium text-stone-900 mb-2">
                     {p.name}
                   </h3>
-                  <p className="text-sm text-stone-600 leading-relaxed">
-                    {p.description}
-                  </p>
-                  <div className="flex items-center gap-3 mt-4">
-                    {p.tech.map((t) => (
-                      <span
-                        key={t.name}
-                        className="flex items-center gap-1.5 text-xs text-stone-500"
+                  <div className="shrink-0 flex items-center gap-2 mt-0.5">
+                    {p.github && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-stone-400 hover:text-stone-900 transition-colors"
+                        aria-label="GitHub"
                       >
-                        <t.icon className="text-base" />
-                        {t.name}
-                      </span>
-                    ))}
-                    {p.repo && <GitHubStats repo={p.repo} />}
+                        <FaGithub className="text-base" />
+                      </a>
+                    )}
+                    {p.link && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs text-accent hover:text-stone-900 transition-colors"
+                      >
+                        Live &rarr;
+                      </a>
+                    )}
                   </div>
                 </div>
-                <div className="shrink-0 flex items-center gap-3 mt-1">
-                  {p.github && (
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-stone-400 hover:text-stone-900 transition-colors"
-                      aria-label="GitHub"
-                    >
-                      <FaGithub className="text-lg" />
-                    </a>
-                  )}
-                  {p.link && (
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-accent hover:text-stone-900 transition-colors"
-                    >
-                      Live &rarr;
-                    </a>
-                  )}
-                </div>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  {p.description}
+                </p>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-4">
+                {p.tech.map((t) => (
+                  <span
+                    key={t.name}
+                    className="flex items-center gap-1 text-xs text-stone-500"
+                  >
+                    <t.icon className="text-sm" />
+                    {t.name}
+                  </span>
+                ))}
+                {p.repo && <GitHubStats repo={p.repo} />}
               </div>
             </div>
+          </div>
           ))}
         </div>
       </div>
