@@ -23,8 +23,9 @@ import {
   SiAnthropic,
 } from 'react-icons/si'
 import { FaLinkedin, FaGithub } from 'react-icons/fa'
-import { VscDebug, VscServerProcess, VscSymbolMethod } from 'react-icons/vsc'
-import { GoGitBranch, GoWorkflow, GoFile, GoPlug, GoPerson } from 'react-icons/go'
+import { VscDebug, VscServerProcess } from 'react-icons/vsc'
+import { useState, useEffect } from 'react'
+import { GoGitBranch, GoWorkflow, GoFile, GoPlug, GoPerson, GoStar, GoRepoForked } from 'react-icons/go'
 
 function Nav() {
   const links = [
@@ -247,6 +248,8 @@ const projects = [
     name: "Personal Expense Tracker",
     description: "Track and visualize personal spending with a category-based dashboard and monthly breakdowns.",
     link: "https://personal-expense-management-app.onrender.com",
+    github: "https://github.com/SSN-MiniProjects/personal-expense-tracker",
+    repo: "SSN-MiniProjects/personal-expense-tracker",
     tech: [
       { name: "Flask", icon: SiFlask },
       { name: "PostgreSQL", icon: SiPostgresql },
@@ -258,6 +261,7 @@ const projects = [
     description: "Create and manage forms entirely through Telegram with automated response collection.",
     link: "https://telegram.me/formspot_bot",
     github: "https://github.com/jagadish-ravichandran/Form_Telegram_Bot",
+    repo: "jagadish-ravichandran/Form_Telegram_Bot",
     tech: [
       { name: "Python", icon: SiPython },
       { name: "PostgreSQL", icon: SiPostgresql },
@@ -268,6 +272,7 @@ const projects = [
     name: "TOTP Spring Boot App",
     description: "Production-ready two-factor authentication (2FA) with TOTP — AES-256-GCM encrypted secrets, QR code setup, and Spring Security integration.",
     github: "https://github.com/jagadish-ravichandran/totp-spring-boot-app",
+    repo: "jagadish-ravichandran/totp-spring-boot-app",
     tech: [
       { name: "Java", icon: SiOpenjdk },
       { name: "Spring Boot", icon: SiSpringboot },
@@ -278,12 +283,42 @@ const projects = [
     name: "Put.io Telegram Bot",
     description: "Telegram bot to download torrents and generate direct download links using put.io integration.",
     github: "https://github.com/jagadish-ravichandran/Putio-Telegram-Bot",
+    repo: "jagadish-ravichandran/Putio-Telegram-Bot",
     tech: [
       { name: "Python", icon: SiPython },
       { name: "Telegram", icon: SiTelegram },
     ],
   },
 ]
+
+function GitHubStats({ repo }) {
+  const [stats, setStats] = useState(null)
+
+  useEffect(() => {
+    if (!repo) return
+    fetch(`https://api.github.com/repos/${repo}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.stargazers_count !== undefined) {
+          setStats({ stars: data.stargazers_count, forks: data.forks_count })
+        }
+      })
+      .catch(() => {})
+  }, [repo])
+
+  if (!stats) return null
+
+  return (
+    <span className="flex items-center gap-3 text-xs text-stone-400">
+      <span className="flex items-center gap-1">
+        <GoStar /> {stats.stars}
+      </span>
+      <span className="flex items-center gap-1">
+        <GoRepoForked /> {stats.forks}
+      </span>
+    </span>
+  )
+}
 
 function Projects() {
   return (
@@ -316,6 +351,7 @@ function Projects() {
                         {t.name}
                       </span>
                     ))}
+                    {p.repo && <GitHubStats repo={p.repo} />}
                   </div>
                 </div>
                 <div className="shrink-0 flex items-center gap-3 mt-1">
