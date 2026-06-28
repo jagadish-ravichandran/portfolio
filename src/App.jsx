@@ -148,7 +148,7 @@ function Experience() {
     {
       company: "Axelate Solutions",
       title: "Software Engineer",
-      period: "Jun 2025 – Jun 2026",
+      period: "Jun 2025 – Present",
       color: "#2563eb",
       highlights: [
         "Designed domain-driven backend services for a multi-tenant B2B SaaS platform, keeping business logic cleanly separated from application and infrastructure concerns.",
